@@ -1,4 +1,4 @@
-import { UPDATE, TOGGLE_UNITS } from '../actions'
+import { UPDATE, TOGGLE_UNITS } from './actions'
 import { combineReducers } from 'redux'
 
 function chart(state = {}, action){
@@ -7,14 +7,14 @@ function chart(state = {}, action){
       return action.chart
     case TOGGLE_UNITS:
       return Object.assign({}, state, {
-        units: action.units
+         units: action.units
       })
     default:
       return state
   }
 }
 
-const chartApp = ({
+const chartApp = combineReducers({
   chart
 })
 
