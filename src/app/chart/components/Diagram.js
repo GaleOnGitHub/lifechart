@@ -1,7 +1,25 @@
 import React, { PropTypes, Component } from 'react'
 import { Link } from 'react-router'
+import ChartDrawing from '../scripts/ChartDrawing'
 
 class Diagram extends Component{
+    constructor(props){
+      super(props)
+      this.chart = null
+    }
+    componentDidMount(){
+      const { ageInUnits, lifeInUnits } = this.props
+      this.chart = new ChartDrawing(ageInUnits,lifeInUnits)
+      window.addEventListener('resize',() => this.chart.resize())
+    }
+    componentDidUpdate(){
+      const { ageInUnits, lifeInUnits } = this.props
+      this.chart.update(ageInUnits,lifeInUnits)
+    }
+    componentWillUnmount(){
+      window.removeEventListener('resize', () => this.chart.resize())
+    }
+
   render(){
     const {ageInUnits, lifeInUnits } = this.props
     if(ageInUnits > lifeInUnits){ //Older than expected
@@ -21,8 +39,8 @@ class Diagram extends Component{
       )
     }
     return (
-      <div>
-        {ageInUnits},{lifeInUnits}
+      <div className="">
+        <canvas id="chart-canvas"/>
       </div>
     )
   }
