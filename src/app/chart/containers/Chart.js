@@ -58,11 +58,11 @@ const convertYearsToUnit = (years, unit) => {
 
 class Chart extends Component {
   render(){
-    const { age, lifespan, ageInUnits, lifeInUnits, units} = this.props
+    const { lifespan, ageInUnits, lifeInUnits, units} = this.props
     return (
       <section>
         <header>
-          <div><h1>{age} Years</h1></div>
+          <div><h1>{lifespan} Years</h1></div>
           <DiagramDetails ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} units={units} />
         </header>
         <Diagram ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} />
@@ -85,7 +85,7 @@ const mapToProps = (state) => {
     lifespan,
     units,
     ageInUnits: convertDOBtoAge(dob,units),
-    lifeInUnits: convertYearsToUnit(lifespan)
+    lifeInUnits: convertYearsToUnit(lifespan, units)
   }
 }
 
