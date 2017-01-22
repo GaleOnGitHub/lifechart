@@ -16,7 +16,7 @@ export const update = (dob, lifespan, country, units) => {
 
 export const toggleUnit = (units) => {
   return {
-    type: TOGGLE_UNIT,
+    type: TOGGLE_UNITS,
     units
   }
 }
