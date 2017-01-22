@@ -39,8 +39,8 @@ class Diagram extends Component{
       )
     }
     return (
-      <div className="">
-        <canvas id="chart-canvas"/>
+      <div className="chart-body">
+        <canvas id="chart-canvas" className="chart-diagram"/>
       </div>
     )
   }

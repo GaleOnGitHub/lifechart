@@ -60,7 +60,7 @@ class Chart extends Component {
   render(){
     const { lifespan, ageInUnits, lifeInUnits, units} = this.props
     return (
-      <section>
+      <section className="chart">
         <header>
           <div><h1>{lifespan} Years</h1></div>
           <DiagramDetails ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} units={units} />
