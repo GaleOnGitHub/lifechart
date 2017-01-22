@@ -6,7 +6,14 @@ import chartApp from './chart/reducers'
 
 import Chart from './chart/containers/Chart'
 
-const store = createStore(chartApp)
+const initialState = {
+  chart: {
+    dob: 'Feb 25 1990',
+    lifespan: 82,
+    units: "YEARS"
+  }
+}
+const store = createStore(chartApp, initialState)
 
 export default class App extends Component {
   render(){

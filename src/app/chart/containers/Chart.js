@@ -40,7 +40,7 @@ const convertDOBtoAge = (date, units) => {
       return age.toMonths()
     case TIME_UNITS.YEARS:
     default:
-      return age.toYears
+      return age.toYears()
   }
 }
 
