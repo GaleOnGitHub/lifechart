@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import chartApp from './chart/reducers'
 
 import Chart from './chart/containers/Chart'
+import SetupForm from './chart/containers/SetupForm'
 
 const initialState = {
   chart: {
@@ -24,7 +25,7 @@ export default class App extends Component {
             <IndexRoute component={Chart} />
             <Route path="/settings" component={Settings} />
           </Route>
-          <Route path="/setup" component={Setup}/>
+          <Route path="/setup" component={SetupForm}/>
         </Router>
       </Provider>
     )
