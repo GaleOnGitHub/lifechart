@@ -52,7 +52,7 @@ class SettingsForm extends Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.validateKey = this.validateKey.bind(this)
+    this.validateField = this.validateField.bind(this)
     this.tryDispatch = this.tryDispatch.bind(this)
   }
   handleSubmit(e){
@@ -117,6 +117,7 @@ class SettingsForm extends Component {
               {errors.lifespan ? errors.lifespan : ''}
           </fieldset>
           <button type="submit" disabled={submitting}>Finish</button>
+          <button type="button" onClick={() => this.props.router.push('/')}>Cancel</button>
         </form>
     )
   }
