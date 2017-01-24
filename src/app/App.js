@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import { loadUrlData, redirectNoData } from './middleware/routing'
 
+import MainLayout from './layouts/MainLayout'
 import Chart from './chart/containers/Chart'
 import SetupForm from './chart/containers/SetupForm'
 import SettingsForm from './chart/containers/SettingsForm'
@@ -14,7 +15,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router history={hashHistory}>
-          <Route path="/">
+          <Route path="/" component={MainLayout}>
             <IndexRoute component={Chart} onEnter={redirectNoData}/>
             <Route path="/settings" component={SettingsForm} onEnter={redirectNoData}/>
             <Route path="/load/:dob/:lifespan" component={Chart} onEnter={loadUrlData}/>
