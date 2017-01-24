@@ -33,7 +33,3 @@ export default class App extends Component {
     )
   }
 }
-
-// const Chart = () => (<h1>CHART</h1>)
-// const Settings = () => (<h1>SETTINGS</h1>)
-const Setup = () => (<h1>SETUP</h1>)
