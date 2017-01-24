@@ -6,12 +6,14 @@ import chartApp from './chart/reducers'
 
 import Chart from './chart/containers/Chart'
 import SetupForm from './chart/containers/SetupForm'
+import SettingsForm from './chart/containers/SettingsForm'
 
 const initialState = {
   chart: {
-    dob: 'Feb 25 1990',
+    dob: '1990-02-25',
     lifespan: 82,
-    units: "YEARS"
+    units: "YEARS",
+    country: 'Canada'
   }
 }
 const store = createStore(chartApp, initialState)
@@ -23,7 +25,7 @@ export default class App extends Component {
         <Router history={hashHistory}>
           <Route path="/">
             <IndexRoute component={Chart} />
-            <Route path="/settings" component={Settings} />
+            <Route path="/settings" component={SettingsForm} />
           </Route>
           <Route path="/setup" component={SetupForm}/>
         </Router>
@@ -33,5 +35,5 @@ export default class App extends Component {
 }
 
 // const Chart = () => (<h1>CHART</h1>)
-const Settings = () => (<h1>SETTINGS</h1>)
+// const Settings = () => (<h1>SETTINGS</h1>)
 const Setup = () => (<h1>SETUP</h1>)
