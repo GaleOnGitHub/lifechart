@@ -8,7 +8,7 @@ export const loadUrlData = (nextState,replace) => {
 
 export const redirectNoData = (nextState, redirect) => {
   const chart = store.getState().chart
-  if(Object.keys(chart).length === 0){
+  if(!chart){
     redirect('/setup')
   }
 }

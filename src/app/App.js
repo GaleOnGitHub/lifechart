@@ -16,7 +16,7 @@ export default class App extends Component {
         <Router history={hashHistory}>
           <Route path="/">
             <IndexRoute component={Chart} onEnter={redirectNoData}/>
-            <Route path="/settings" component={SettingsForm} />
+            <Route path="/settings" component={SettingsForm} onEnter={redirectNoData}/>
             <Route path="/load/:dob/:lifespan" component={Chart} onEnter={loadUrlData}/>
           </Route>
           <Route path="/setup" component={SetupForm}/>
