@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import chartApp from './chart/reducers'
-import { UPDATE, update } from './chart/actions'
+import { UPDATE } from './chart/actions'
 
 //initial state
 const getInitialState = () => {
@@ -21,4 +21,8 @@ const saveToSessionStorage = store => next => action => {
   return result
 }
 
-export const store = createStore(chartApp, getInitialState(), applyMiddleware(saveToSessionStorage));
+export const store = createStore(
+  chartApp, 
+  getInitialState(), 
+  applyMiddleware(saveToSessionStorage)
+  );
