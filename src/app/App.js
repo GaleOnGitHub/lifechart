@@ -15,11 +15,10 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router history={hashHistory}>
-          <Route path="/" component={MainLayout}>
-            <IndexRoute component={Chart} onEnter={redirectNoData}/>
-            <Route path="/settings" component={SettingsForm} onEnter={redirectNoData}/>
-            <Route path="/load/:dob/:lifespan" component={Chart} onEnter={loadUrlData}/>
-          </Route>
+          <Route path="/" component={Home} />
+          <Route path='/chart' component={Chart} onEnter={redirectNoData}/>
+          <Route path="/chart/:dob/:lifespan" component={Chart} onEnter={loadUrlData}/>
+          <Route path="/settings" component={SettingsForm} onEnter={redirectNoData}/>         
           <Route path="/setup" component={SetupForm}/>
           <Route path="*" component={NotFound} />
         </Router>
@@ -33,4 +32,8 @@ const NotFound = () => (
     <h1>404 Error</h1>
     <p>Looks like this page doesn't exist.</p>
   </div>
+)
+
+const Home = () => (
+  <h1>HOME</h1>
 )

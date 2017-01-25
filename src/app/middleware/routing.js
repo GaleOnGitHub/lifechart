@@ -9,6 +9,6 @@ export const loadUrlData = (nextState,replace) => {
 export const redirectNoData = (nextState, redirect) => {
   const chart = store.getState().chart
   if(!chart){
-    redirect('/setup')
+    redirect('/')
   }
 }
