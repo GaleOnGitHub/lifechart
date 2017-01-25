@@ -54,7 +54,7 @@ class SetupForm extends Component {
       const {dob, country} = this.state.values
       const lifespan = Countries.find((c) => c.name === country).value
       this.props.dispatch(update(dob, lifespan, country, 'MONTHS'))
-      this.props.router.push('/')
+      this.props.router.push('/chart')
     }else{
       console.log(this.state)
       this.setState({submitting:false})
