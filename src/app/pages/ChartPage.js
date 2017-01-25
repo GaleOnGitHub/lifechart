@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { TIME_UNITS } from '../constants'
-import Diagram from '../components/Diagram'
-import DiagramDetails from '../components/DiagramDetails'
-import Footer from '../components/Footer'
+import MainLayout from './layouts/MainLayout'
+import { TIME_UNITS } from '../chart/constants'
+import Diagram from '../chart/components/Diagram'
+import Footer from '../chart/components/Footer'
 
 //possibly move to seperate file
 const SubtractDates = (function(){
@@ -47,7 +47,7 @@ const convertDOBtoAge = (date, units) => {
 const convertYearsToUnit = (years, unit) => {
   switch(unit){  
     case TIME_UNITS.WEEKS:
-      return years * 52
+      return Math.floor(years * 365.25/7)
     case TIME_UNITS.MONTHS:
       return years * 12
     case TIME_UNITS.YEARS:
@@ -56,38 +56,36 @@ const convertYearsToUnit = (years, unit) => {
   }
 }
 
-class Chart extends Component {
+const mapStateToProps = (state) => {
+  const {lifespan, dob, units} = state.chart
+  const ageInUnits = convertDOBtoAge(dob,units)
+  const lifeInUnits = convertYearsToUnit(lifespan, units)
+  const title = ageInUnits+" of "+lifeInUnits+" "+units
+  return {
+    title, 
+    ageInUnits,
+    lifeInUnits,
+  }
+}
+
+class ChartPage extends Component {
   render(){
-    const { lifespan, ageInUnits, lifeInUnits, units} = this.props
+    const {title, ageInUnits, lifeInUnits} = this.props
     return (
-      <section className="chart">
-        <header>
-          <div><h1>{lifespan} Years</h1></div>
-          <DiagramDetails ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} units={units} />
-        </header>
+      <MainLayout title={title}>
         <Diagram ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} />
         <Footer />
-      </section>
+      </MainLayout>
     )
   }
 }
 
-Chart.PropTypes = {
-    lifespan: PropTypes.number,
-    units: PropTypes.string,
-    ageInUnits: PropTypes.number,
-    lifeInUnits: PropTypes.number    
+ChartPage.PropTypes = {
+  title: PropTypes.string,
+  ageInUnits: PropTypes.number,
+  lifeInUnits: PropTypes.number
 }
 
-const mapToProps = (state) => {
-  const {lifespan, dob, units} = state.chart
-  return {
-    lifespan,
-    units,
-    ageInUnits: convertDOBtoAge(dob,units),
-    lifeInUnits: convertYearsToUnit(lifespan, units)
-  }
-}
+ChartPage = connect(mapStateToProps)(ChartPage);
+export default ChartPage
 
-Chart = connect(mapToProps)(Chart)
-export default Chart
