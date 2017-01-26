@@ -73,8 +73,10 @@ class ChartPage extends Component {
     const {title, ageInUnits, lifeInUnits} = this.props
     return (
       <MainLayout title={title}>
-        <Diagram ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} />
-        <Footer />
+        <div className="chart">
+          <Diagram ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} />
+          <Footer />
+        </div>
       </MainLayout>
     )
   }

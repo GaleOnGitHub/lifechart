@@ -1,0 +1,22 @@
+
+.legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  &-item {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+  }
+  &-past { background-color: $dark-grey; }
+  &-now  { background-color: $primary-color; }
+  li { 
+    display: inline-block;
+    margin-left: 10px; 
+  }
+  li:first-of-type {
+    margin-left: 0;
+  }
+}

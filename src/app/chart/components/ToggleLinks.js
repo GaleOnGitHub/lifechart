@@ -3,7 +3,7 @@ import { TIME_UNITS } from '../constants'
 import ToggleLink from '../containers/ToggleLink'
 
 const ToggleLinks = () => (
-    <div>
+    <div className="chart-time">
       Time: 
       {" "}
       <ToggleLink units={TIME_UNITS.YEARS}>

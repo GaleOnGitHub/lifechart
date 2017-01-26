@@ -4,13 +4,13 @@ import ToggleLinks from './ToggleLinks'
 const Footer = () => (
   <footer>
     <ToggleLinks/>
-    <div>
-      <ul>
+    <div className="chart-legend">
+      <ul className="legend">
         <li>
-          <div></div> Past
+          <div className="legend-item legend-past"></div> Past
         </li>
         <li>
-          <div></div> Now
+          <div className="legend-item legend-now"></div> Now
         </li>
       </ul>
     </div>

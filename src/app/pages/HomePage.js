@@ -10,10 +10,12 @@ class HomePage extends Component {
   }
   render(){
     return (
-      <div>
-        <h1>Lifechart</h1>
-        <p>a reminder to make the most of everyday</p>
-        <button onClick={this.handleClick}>Start</button>
+      <div className="fullscreen">
+        <div className="centered">
+          <h1 className="logo logo-lg">Lifechart</h1>
+          <p>a reminder to make the most of everyday</p>
+          <button className="btn btn-trans" onClick={this.handleClick}>Start</button>
+        </div>
       </div>
     )
   }

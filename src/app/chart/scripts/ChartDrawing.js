@@ -16,9 +16,9 @@ const ChartDrawing = function(ageInBlocks, lifeInBlocks){
     },
     draw: function(ctx){
       const TYPES = {
-        PAST: '#165016',
-        PRESENT: '#ff0000',
-        FUTURE: '#ebffe1'
+        PAST: '#333333',
+        PRESENT: '#d33e3e',
+        FUTURE: '#a1a1a1'
       }
 
       ctx.fillStyle = TYPES[this.type] || '#eee'
