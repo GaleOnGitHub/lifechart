@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import { loadUrlData, redirectNoData } from './middleware/routing'
 
+import HomePage from './pages/HomePage'
 import SetupPage from './pages/SetupPage'
 import ChartPage from './pages/ChartPage'
 import SettingsPage from './pages/SettingsPage'
@@ -16,7 +17,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router history={hashHistory}>
-          <Route path="/" component={Home} />
+          <Route path="/" component={HomePage} />
           <Route path="/setup" component={SetupPage}/>
           <Route path='/chart' component={ChartPage} onEnter={redirectNoData}/>
           <Route path="/chart/:dob/:lifespan" component={ChartPage} onEnter={loadUrlData}/>
@@ -33,8 +34,4 @@ const NotFound = () => (
     <h1>404 Error</h1>
     <p>Looks like this page doesn't exist.</p>
   </div>
-)
-
-const Home = () => (
-  <h1>HOME</h1>
 )

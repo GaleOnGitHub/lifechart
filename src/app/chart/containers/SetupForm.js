@@ -53,7 +53,7 @@ class SetupForm extends Component {
     if(Object.keys(this.state.errors).length === 0){
       const {dob, country} = this.state.values
       const lifespan = Countries.find((c) => c.name === country).value
-      this.props.dispatch(update(dob, lifespan, country, 'MONTHS'))
+      this.props.dispatch(update(dob, lifespan, country, 'YEARS'))
       this.props.router.push('/chart')
     }else{
       console.log(this.state)
