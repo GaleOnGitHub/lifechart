@@ -31,25 +31,25 @@ class SetupForm extends Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.validateKey = this.validateKey.bind(this)
-    this.logState = this.logState.bind(this)
+    this.validateField = this.validateField.bind(this)
+    this.tryDispatch = this.tryDispatch.bind(this)
   }
   handleSubmit(e){
     e.preventDefault()
     const errors = validate(this.state.values)
-    this.setState({errors, submitting: true}, this.logState)
+    this.setState({errors, submitting: true}, this.tryDispatch)
   }
   handleChange(key, value){
     const values = this.state.values
     values[key] = value
-    this.setState({values}, () => this.validateKey(key))
+    this.setState({values}, () => this.validateField(key))
   }
-  validateKey(key){
+  validateField(key){
     const errors = this.state.errors
     errors[key] = validate(this.state.values)[key]
     this.setState({errors})
   }
-  logState(){
+  tryDispatch(){
     if(Object.keys(this.state.errors).length === 0){
       const {dob, country} = this.state.values
       const lifespan = Countries.find((c) => c.name === country).value
