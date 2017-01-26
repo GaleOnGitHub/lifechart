@@ -1,0 +1,41 @@
+
+.default-input {
+  padding: 6px 12px;
+  margin: 4px;
+  border: 2px solid #939393;
+  border-radius: 8px;
+  background-color: $input-grey;
+  font-size: 16px;
+  &:focus {
+    outline: none;
+    border-color: $input-active;
+  }
+}
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 20px;
+}
+label {
+  display: block;
+  font-weight: bold;
+}
+input  { @extend .default-input; }
+select { @extend .default-input; }
+
+.setup-field {
+  color: #eee;
+  font-size: 2.6em;
+
+  input  { background-color: $input-white; }
+  select { background-color: $input-white; }
+}
+
+.error {
+  margin: 3px;
+}
+
+.error-setup {
+  color: #eee;
+  font-size: 18px;
+}

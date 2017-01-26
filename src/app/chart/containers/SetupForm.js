@@ -10,6 +10,9 @@ const renderCountryOptions = () => (
     )}
   </optgroup>
 )
+const renderError = (message) => (
+  <div className="error error-setup">{ message }</div>
+)
 
 const validate = values => {
   const errors = {}
@@ -65,21 +68,22 @@ class SetupForm extends Component {
     const {values, errors, submitting} = this.state
     return (
         <form onSubmit={this.handleSubmit}>
-          <fieldset>
+          <fieldset className="setup-field">
             <label>What is your date of birth?</label>
             <input 
+              autoFocus
               type="date" 
               defaultValue={values.dob}
               onChange={(e) => this.handleChange('dob',e.target.value)}/>
-              {errors.dob ? errors.dob : ''}
+              {errors.dob ? renderError(errors.dob) : ''}
           </fieldset>
-          <fieldset>
+          <fieldset className="setup-field">
             <label>Where do you live?</label>
             <select defaultValue={values.country} onChange={(e) => this.handleChange('country', e.target.value)}>
               { renderCountryOptions() }
             </select>
           </fieldset>
-          <button type="submit" disabled={submitting}>Finish</button>
+          <button className="btn btn-clear" type="submit" disabled={submitting}>Finish</button>
         </form>
     )
   }

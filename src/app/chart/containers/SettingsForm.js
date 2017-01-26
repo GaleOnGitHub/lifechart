@@ -103,7 +103,7 @@ class SettingsForm extends Component {
               {errors.dob ? errors.dob : ''}
           </fieldset>
           <fieldset>
-            <label>Life Expectancy?</label>
+            <label>Life Expectancy</label>
             <select value={values.country} onChange={(e) => this.handleChange('country', e.target.value)}>
               <optgroup label="Value">
                 <option value="Custom">Custom</option>
