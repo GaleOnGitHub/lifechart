@@ -82,8 +82,8 @@ class SettingsForm extends Component {
     if(Object.keys(this.state.errors).length === 0){
       console.log(this.state)
       const {dob, country, lifespan} = this.state.values
-      this.props.dispatch(update(dob, lifespan, country, 'MONTHS'))
-      this.props.router.push('/')
+      this.props.dispatch(update(dob, lifespan, country, 'YEARS'))
+      this.props.router.push('/chart')
     }else{
       console.log(this.state)
       this.setState({submitting:false})
