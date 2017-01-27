@@ -49,7 +49,13 @@ a:visited {
 }
 
 @media screen and (max-width: 350px) {
-  .logo { font-size: 1em; }
   h1 { font-size: 1em; }
   body { font-size: 13px; }
+  .logo { font-size: 1em; }
+}
+@media screen and (max-width: 450px) {
+  .home-title { 
+    h1 { font-size: 2.4em; }
+    p  { font-size: 1.1em;} 
+  }
 }

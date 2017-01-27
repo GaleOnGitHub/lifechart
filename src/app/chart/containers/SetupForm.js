@@ -71,6 +71,7 @@ class SetupForm extends Component {
           <fieldset>
             <label>What is your date of birth?</label>
             <input 
+              className={errors.dob ? "error-field" : ""}
               autoFocus
               type="date" 
               defaultValue={values.dob}
