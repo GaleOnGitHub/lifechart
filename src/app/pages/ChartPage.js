@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import MainLayout from './layouts/MainLayout'
 import { TIME_UNITS } from '../chart/constants'
 import Diagram from '../chart/components/Diagram'
@@ -68,15 +69,31 @@ const mapStateToProps = (state) => {
   }
 }
 
+const renderError = (message) => (
+  <h2>
+    {message}{" "}
+    Try updating your <Link to="/settings">settings</Link>.
+  </h2>
+)
+
 class ChartPage extends Component {
   render(){
     const {title, ageInUnits, lifeInUnits} = this.props
+    let error = null
+    if(ageInUnits > lifeInUnits) //Older than expected
+      error = "You've' lived longer than this life expectancy!"      
+    if(ageInUnits < 0) //Negative age
+      error = "Wow! Looks like you were born in the future."
     return (
       <MainLayout title={title}>
+      {error ? ( //if error
+        renderError(error)
+      ):( //else
         <div className="chart">
           <Diagram ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} />
           <Footer />
-        </div>
+        </div> 
+      )}
       </MainLayout>
     )
   }
