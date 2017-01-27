@@ -74,6 +74,8 @@ class SettingsForm extends Component {
     this.setState({values}, () => this.validateField(key))
   }
   validateField(key){
+    if(key === 'country')
+      key = 'lifespan'
     const errors = this.state.errors
     errors[key] = validate(this.state.values)[key]
     this.setState({errors})
@@ -122,7 +124,7 @@ class SettingsForm extends Component {
               {errors.lifespan ? renderError(errors.lifespan) : ''}
           </fieldset>
           <button className="btn btn-dbl" type="submit" disabled={submitting}>Save</button>
-          <button className="btn btn-dbl" type="button" onClick={() => this.props.router.push('/')}>Cancel</button>
+          <button className="btn btn-dbl" type="button" onClick={() => this.props.router.push('/chart')}>Cancel</button>
         </form>
     )
   }
