@@ -1,41 +1,62 @@
 
-.default-input {
-  padding: 6px 12px;
-  margin: 4px;
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.default-field {
+  padding: 6px 14px;
+  margin: 4px 12px 4px 0;
   border: 2px solid #939393;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: $input-grey;
-  font-size: 16px;
+  font-size: 18px;
   &:focus {
     outline: none;
     border-color: $input-active;
   }
 }
-fieldset {
-  border: none;
-  padding: 0;
-  margin: 20px;
-}
+
+input  { @extend .default-field; }
+select { @extend .default-field; }
 label {
+  font-size: 18px;
   display: block;
   font-weight: bold;
 }
-input  { @extend .default-input; }
-select { @extend .default-input; }
 
-.setup-field {
-  color: #eee;
-  font-size: 2.6em;
-
-  input  { background-color: $input-white; }
-  select { background-color: $input-white; }
+.input-sm {
+  width: 100px;
 }
 
+//Setup
+.setup-input {
+  background-color: $input-white;
+  width: 100%; 
+  max-width: 250px;
+}
+.setup-form {
+  color: #eee;
+  input  { 
+    @extend .setup-input; 
+    margin: 5px; 
+  }
+  label  { font-size: 32px; }
+  select { @extend .setup-input; }
+}
+
+//Error text
 .error {
-  margin: 3px;
+  color: $primary-color;
+  &:before {
+    content: "! ";
+  }
+  &-setup {
+    color: #eee;
+    font-size: 18px;
+  }
 }
-
-.error-setup {
-  color: #eee;
-  font-size: 18px;
+.error-field {
+  border-color: $primary-color !important;
 }

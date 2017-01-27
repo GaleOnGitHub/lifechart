@@ -67,8 +67,8 @@ class SetupForm extends Component {
   render(){
     const {values, errors, submitting} = this.state
     return (
-        <form onSubmit={this.handleSubmit}>
-          <fieldset className="setup-field">
+        <form className="setup-form" onSubmit={this.handleSubmit}>
+          <fieldset>
             <label>What is your date of birth?</label>
             <input 
               autoFocus
@@ -77,7 +77,7 @@ class SetupForm extends Component {
               onChange={(e) => this.handleChange('dob',e.target.value)}/>
               {errors.dob ? renderError(errors.dob) : ''}
           </fieldset>
-          <fieldset className="setup-field">
+          <fieldset>
             <label>Where do you live?</label>
             <select defaultValue={values.country} onChange={(e) => this.handleChange('country', e.target.value)}>
               { renderCountryOptions() }

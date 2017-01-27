@@ -11,6 +11,9 @@ const mapToProps = (state) => {
     country
   }
 }
+const renderError = (message) => (
+  <div className="error">{ message }</div>
+)
 
 const renderCountryOptions = () => (
   <optgroup label="Countries">
@@ -95,12 +98,13 @@ class SettingsForm extends Component {
     return (
         <form onSubmit={this.handleSubmit}>
           <fieldset>
-            <label>Date of Birth?</label>
+            <label>Date of Birth</label>
             <input 
+              className={errors.dob ? "error-field" : ""}
               type="date" 
               value={values.dob}
               onChange={(e) => this.handleChange('dob',e.target.value)}/>
-              {errors.dob ? errors.dob : ''}
+              {errors.dob ? renderError(errors.dob) : ''}
           </fieldset>
           <fieldset>
             <label>Life Expectancy</label>
@@ -110,14 +114,15 @@ class SettingsForm extends Component {
               </optgroup>
               { renderCountryOptions() }
             </select>
-            <input 
+            <input
+              className={ errors.lifespan ? "input-sm error-field" : "input-sm"}
               type="number"
               value={values.lifespan}
               onChange={(e) => this.handleChange('lifespan',e.target.value)}/>
-              {errors.lifespan ? errors.lifespan : ''}
+              {errors.lifespan ? renderError(errors.lifespan) : ''}
           </fieldset>
-          <button type="submit" disabled={submitting}>Finish</button>
-          <button type="button" onClick={() => this.props.router.push('/')}>Cancel</button>
+          <button className="btn btn-dbl" type="submit" disabled={submitting}>Save</button>
+          <button className="btn btn-dbl" type="button" onClick={() => this.props.router.push('/')}>Cancel</button>
         </form>
     )
   }
