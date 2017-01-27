@@ -20,3 +20,7 @@
     margin-left: 0;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .legend li { margin-left: 10px; }
+}

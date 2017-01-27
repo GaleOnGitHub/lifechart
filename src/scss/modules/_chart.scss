@@ -22,3 +22,11 @@
     padding: 12px 0 24px 0;
   }
 }
+
+
+@media screen and (max-width: 350px) {
+  .chart-legend { float: none; margin-top: 6px; }
+  .chart-time   { float: none;  }
+  .chart-body   { padding: 6px; }
+  .chart footer { padding: 8px 0;}
+}

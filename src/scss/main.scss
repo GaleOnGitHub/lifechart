@@ -47,3 +47,9 @@ a:visited {
     margin: 0;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .logo { font-size: 1em; }
+  h1 { font-size: 1em; }
+  body { font-size: 13px; }
+}

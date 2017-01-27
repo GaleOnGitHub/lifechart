@@ -60,7 +60,7 @@ const mapStateToProps = (state) => {
   const {lifespan, dob, units} = state.chart
   const ageInUnits = convertDOBtoAge(dob,units)
   const lifeInUnits = convertYearsToUnit(lifespan, units)
-  const title = ageInUnits+" of "+lifeInUnits+" "+units
+  const title = ageInUnits+" of "+lifeInUnits+" "+units.toLowerCase()
   return {
     title, 
     ageInUnits,

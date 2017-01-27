@@ -34,3 +34,8 @@
   height: 40px;
   background-color: $dark-grey;
 }
+
+@media screen and (max-width: 350px) {
+  .topbar { height: 45px; }
+  .bottombar { height: 25px; }
+}
