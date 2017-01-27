@@ -13,7 +13,7 @@
 }
 
 .btn-dbl {
-  min-width: 220px;
+  min-width: 200px;
   margin-right: 16px;
   &:last-of-type {
     margin-right: 0;
@@ -34,4 +34,10 @@
   &:active {
     box-shadow: inset 1px 1px 2px 0 #333;
   }
+}
+
+@media screen and (max-width: 450px){
+  .btn { padding: 8px 40px; font-size: 15px; }
+  .btn-dbl { margin: 0; width: 100%; }
+
 }

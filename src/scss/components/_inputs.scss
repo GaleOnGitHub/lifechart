@@ -2,12 +2,12 @@
 fieldset {
   border: none;
   padding: 0;
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 .default-field {
   padding: 6px 14px;
-  margin: 4px 12px 4px 0;
+  margin: 0;
   border: 2px solid #939393;
   border-radius: 10px;
   background-color: $input-grey;
@@ -22,12 +22,14 @@ input  { @extend .default-field; }
 select { @extend .default-field; }
 label {
   font-size: 18px;
+  margin: 3px 0;
   display: block;
   font-weight: bold;
 }
 
 .input-sm {
   width: 100px;
+  margin-left: 12px;
 }
 
 //Setup
@@ -59,4 +61,17 @@ label {
 }
 .error-field {
   border-color: $primary-color !important;
+}
+
+@media screen and (max-width: 450px){
+  label { font-size: 15px; }
+  fieldset { margin: 12px 0; }
+  .default-field { 
+    width: 100%; 
+    font-size: 14px;
+  }
+  .input-sm { 
+    width: 100%; 
+    margin: 0; 
+  }
 }
