@@ -12,6 +12,7 @@
   text-align: center;
   color: #f0f0f0;
   background-color: $primary-color;
+    vertical-align: middle;
 }
 .topbar-title {
   position: absolute;
@@ -34,7 +35,23 @@
   height: 40px;
   background-color: $dark-grey;
 }
-
+.nav-button {
+  background-color: $red-button-border;
+  border-radius: 3px;
+  padding: 8px 12px;
+  display: block;
+  float: left;
+  color: #eee;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  &:visited {
+    color: #eee;
+  }
+}
 @media screen and (max-width: 350px) {
   .topbar { height: 45px; }
   .bottombar { height: 25px; }
