@@ -1,15 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router'
+import NavButton from '../../chart/components/NavButton'
 
-const MainLayout = ({title, children, path = null}) => (
+const MainLayout = ({title, children, path}) => (
   <div className="main-layout">
     <header className="topbar">
       <div className="container">
-        { path === '/settings' ? (
-          <Link className='nav-button' to='/chart'>Back</Link>
-        ):(
-          <Link className='nav-button' to='/settings'>Settings</Link>
-        )}
+        <NavButton path={path}/>
         <div className="topbar-title">
           <span className="logo">Lifechart</span>
           <h1>{title}</h1>

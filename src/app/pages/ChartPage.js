@@ -5,6 +5,7 @@ import MainLayout from './layouts/MainLayout'
 import { TIME_UNITS } from '../chart/constants'
 import Diagram from '../chart/components/Diagram'
 import Footer from '../chart/components/Footer'
+import ShareLink from '../chart/containers/ShareLink'
 
 //possibly move to seperate file
 const SubtractDates = (function(){
@@ -78,18 +79,19 @@ const renderError = (message) => (
 
 class ChartPage extends Component {
   render(){
-    const {title, ageInUnits, lifeInUnits} = this.props
+    const {title, ageInUnits, lifeInUnits, location} = this.props
     let error = null
     if(ageInUnits > lifeInUnits) //Older than expected
       error = "You've' lived longer than this life expectancy!"      
     if(ageInUnits < 0) //Negative age
       error = "Wow! Looks like you were born in the future."
     return (
-      <MainLayout title={title}>
+      <MainLayout title={title} path={location.pathname}>
       {error ? ( //if error
         renderError(error)
       ):( //else
         <div className="chart">
+          <ShareLink />
           <Diagram ageInUnits={ageInUnits} lifeInUnits={lifeInUnits} />
           <Footer />
         </div> 
