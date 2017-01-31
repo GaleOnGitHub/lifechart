@@ -1,0 +1,25 @@
+
+.sharelink {
+  display: flex;
+  padding: 8px 0;
+
+  &-btn {
+    border: none;
+    background: #939393;
+    padding: 0 27px;
+    font-size: 12px;
+  }
+}
+#share-link {
+  border-radius: 0;
+  flex: 1;
+  font-size: 14px;
+}
+@media screen and (max-width: 450px){
+  .sharelink {
+    padding: 6px 0;
+    &-btn {
+      font-size: 12px;
+    }
+  }
+}

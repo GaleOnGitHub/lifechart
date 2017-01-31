@@ -16,14 +16,14 @@ class ShareLink extends Component {
     super(props)
   }
   componentDidMount(){
-    new Clipboard('.btn-copy')    
+    new Clipboard('.sharelink-btn')    
   }
   render(){
     const { url } = this.props
     return (
-      <div>
+      <div className="sharelink">
         <input id="share-link" value={(url ? url : "")} readOnly/>
-        <button className="btn-copy" data-clipboard-target="#share-link">Copy</button>
+        <button className="sharelink-btn" data-clipboard-target="#share-link">Copy</button>
       </div>
     )
   }
