@@ -59,7 +59,6 @@ class SetupForm extends Component {
       this.props.dispatch(update(dob, lifespan, country, 'YEARS'))
       this.props.router.push('/chart')
     }else{
-      console.log(this.state)
       this.setState({submitting:false})
     }
     
