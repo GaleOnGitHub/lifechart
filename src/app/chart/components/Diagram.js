@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { Link } from 'react-router'
 import ChartDrawing from '../scripts/ChartDrawing'
+import { debounce } from '../scripts/utils'
 
 class Diagram extends Component{
     constructor(props){
@@ -10,14 +11,14 @@ class Diagram extends Component{
     componentDidMount(){
       const { ageInUnits, lifeInUnits } = this.props
       this.chart = new ChartDrawing(ageInUnits,lifeInUnits)
-      window.addEventListener('resize',() => this.chart.resize())
+      window.addEventListener('resize',debounce(this.chart.resize,100))
     }
     componentDidUpdate(){
       const { ageInUnits, lifeInUnits } = this.props
       this.chart.update(ageInUnits,lifeInUnits)
     }
     componentWillUnmount(){
-      window.removeEventListener('resize', () => this.chart.resize())
+      window.removeEventListener('resize',debounce(this.chart.resize,100))
     }
 
   render(){
