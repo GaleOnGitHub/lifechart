@@ -9,15 +9,18 @@ class Diagram extends Component{
       this.chart = null
     }
     componentDidMount(){
+      //create chart and add listener for resize
       const { ageInUnits, lifeInUnits } = this.props
       this.chart = new ChartDrawing(ageInUnits,lifeInUnits)
       window.addEventListener('resize',debounce(this.chart.resize,100))
     }
     componentDidUpdate(){
+      //update chart when props change
       const { ageInUnits, lifeInUnits } = this.props
       this.chart.update(ageInUnits,lifeInUnits)
     }
     componentWillUnmount(){
+      //remove event listener
       window.removeEventListener('resize',debounce(this.chart.resize,100))
     }
 

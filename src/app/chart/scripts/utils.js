@@ -1,4 +1,4 @@
-
+//taken from stackoverflow
 export function debounce(func, wait, immediate) {
 	var timeout;
 	return function() {

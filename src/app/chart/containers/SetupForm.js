@@ -57,9 +57,9 @@ class SetupForm extends Component {
       const {dob, country} = this.state.values
       const lifespan = Countries.find((c) => c.name === country).value
       this.props.dispatch(update(dob, lifespan, country, 'YEARS'))
-      this.props.router.push('/chart')
+      this.props.router.push('/chart') //go to chart
     }else{
-      this.setState({submitting:false})
+      this.setState({submitting:false}) //allow user to submit again
     }
     
   }

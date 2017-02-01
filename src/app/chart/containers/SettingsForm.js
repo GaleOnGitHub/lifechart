@@ -65,17 +65,17 @@ class SettingsForm extends Component {
   }
   handleChange(key, value){
     const values = this.state.values
-    if(key === 'country' && value != 'custom'){
+    if(key === 'country' && value != 'custom'){ //replace value with country's'
       values['lifespan'] = this.findCountryLifeExpectancy(value) 
-    }else if(key === 'lifespan'){
-      values['country'] = 'Custom'
+    }else if(key === 'lifespan'){ //change option if value input
+      values['country'] = 'Custom'  
     }
     values[key] = value
     this.setState({values}, () => this.validateField(key))
   }
   validateField(key){
-    if(key === 'country')
-      key = 'lifespan'
+    if(key === 'country') //country should remove lifespan error
+      key = 'lifespan' 
     const errors = this.state.errors
     errors[key] = validate(this.state.values)[key]
     this.setState({errors})
@@ -84,14 +84,12 @@ class SettingsForm extends Component {
     return Countries.find((c) => c.name === country).value
   }
   tryDispatch(){
-    if(Object.keys(this.state.errors).length === 0){
-      console.log(this.state)
+    if(Object.keys(this.state.errors).length === 0){ //no error
       const {dob, country, lifespan} = this.state.values
       this.props.dispatch(update(dob, lifespan, country, 'YEARS'))
-      this.props.router.push('/chart')
-    }else{
-      console.log(this.state)
-      this.setState({submitting:false})
+      this.props.router.push('/chart') //go to chart
+    }else{ //error
+      this.setState({submitting:false}) //allow user to submit again 
     }
     
   }
