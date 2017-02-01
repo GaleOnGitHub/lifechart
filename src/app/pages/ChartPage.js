@@ -86,7 +86,7 @@ class ChartPage extends Component {
     if(ageInUnits < 0) //Negative age
       error = "Wow! Looks like you were born in the future."
     return (
-      <MainLayout title={title} path={location.pathname}>
+      <MainLayout title={title}>
       {error ? ( //if error
         renderError(error)
       ):( //else

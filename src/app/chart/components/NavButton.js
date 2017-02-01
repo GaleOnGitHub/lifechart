@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 class NavButton extends Component {
-    constructor(props){
-        super(props)
-    }
     render(){
-        const {path} = this.props
-        if(path === '/chart'){
-            return (<Link className="nav-button" to="/settings">Settings</Link>)
-        }else{
+        const path = window.location.hash.split('/')[1] 
+        console.log(path)
+        if(path === 'settings'){
             return (<Link className="nav-button" to="/chart">Back</Link>)
+        }else{
+            return (<Link className="nav-button" to="/settings">Settings</Link>)
         }
     }
 } 
