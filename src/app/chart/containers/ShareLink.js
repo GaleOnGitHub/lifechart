@@ -5,7 +5,9 @@ import Clipboard from 'clipboard'
 const mapStateToProps = (state) => {
   const { dob, lifespan } = state.chart
   const origin = window.location.origin
-  const url = origin +"/#/chart/"+dob+"/"+lifespan
+  const pathname  = window.location.pathname
+  const hash = "/#/chart/"+dob+"/"+lifespan
+  const url = origin + pathname + hash
   return { 
     url 
   }
