@@ -20,7 +20,7 @@
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
-    "webpack": "^1.14.0"
+    "webpack": "^2.2.1"
   },
   "dependencies": {
     "clipboard": "^1.5.16",
@@ -38,6 +38,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "webpack -d --watch",
     "watch:css": "sass --watch src/scss/main.scss:build/styles/main.css",
-    "watch": "npm run watch:js & npm run watch:css"
+    "watch": "npm run watch:js & npm run watch:css",
+    "dist:prep": "mkdir -p dist/styles && cp build/index.html dist/index.html",
+    "dist:js": "webpack -p --progress --config webpack.production.config.js",
+    "dist:css": "scss --sourcemap=none -t compressed src/scss/main.scss:dist/styles/main.css",
+    "dist": "npm run dist:prep && npm run dist:js && npm run dist:css"
   }
 }
