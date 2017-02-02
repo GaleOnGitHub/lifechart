@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://GaleOnBitBucket@bitbucket.org/GaleOnBitBucket/lifechart.git"
+    "url": "git+https://github.com/GaleOnGitHub/lifechart.git"
   },
   "keywords": [
     "life",
@@ -14,7 +14,7 @@
     "lifespan"
   ],
   "author": "Benjamin Gale",
-  "homepage": "https://bitbucket.org/GaleOnBitBucket/lifechart#readme",
+  "homepage": "https://github.com/GaleOnGitHub/lifechart.git",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
