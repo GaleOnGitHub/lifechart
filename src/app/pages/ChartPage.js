@@ -6,30 +6,8 @@ import { TIME_UNITS } from '../chart/constants'
 import Diagram from '../chart/components/Diagram'
 import Footer from '../chart/components/Footer'
 import ShareLink from '../chart/containers/ShareLink'
+import SubtractDates from '../scripts/SubtractDates'
 
-//possibly move to seperate file
-const SubtractDates = (function(){
-  const DateResult = function(value){
-    const MS_PER_DAY = 1000*60*60*24
-    this.value = value
-    this.toYears  = () => { 
-      return Math.floor(this.value/(MS_PER_DAY * 365.25)) 
-    }
-    this.toMonths = () => { 
-      return Math.floor(this.value/(MS_PER_DAY * 365.25/12)) 
-    }
-    this.toWeeks  = () => { 
-      return Math.floor(this.value/(MS_PER_DAY * 7)) 
-    }
-    this.toDays   = () => { 
-      return Math.floor(this.value/(MS_PER_DAY)) 
-    }
-  }
-  
-  return (date2,date1) => {
-    return new DateResult(date2-date1)
-  }
-})()
 
 const convertDOBtoAge = (date, units) => {
   const now = new Date(),
